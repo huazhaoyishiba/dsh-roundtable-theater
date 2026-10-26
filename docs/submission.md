@@ -2,6 +2,14 @@
 
 目标目录：[awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)。提交流程以其 [贡献指南](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/blob/main/contributing.md) 为准。
 
+## 发布与收录入口
+
+- [公开源码仓库](https://github.com/huazhaoyishiba/dsh-roundtable-theater)
+- [v0.1.1 Release](https://github.com/huazhaoyishiba/dsh-roundtable-theater/releases/tag/v0.1.1)
+- [收录 PR #9611](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/9611)
+
+仓库与安装包已公开，PR 已提交；是否完成收录以 PR 合并状态为准。仓库创建于 2026-10-26 12:17:07 UTC，满 1 天的时间为 2026-10-27 12:17:07 UTC（北京时间 20:17:07）。
+
 ## 提交内容
 
 目录 PR 只新增 `data/plugins/huazhaoyishiba__dsh-roundtable-theater.yml`。对应本地准备文件为 `submission/huazhaoyishiba__dsh-roundtable-theater.yml`；不要手工修改目录仓库的生成 README，也不要改动其他插件条目。
@@ -14,7 +22,7 @@
 - 根目录 `package.json` 已声明 `dsh.bundle.patch`，且目标 `cordis.patch.yml` 存在。
 - GitHub 仓库包含 `dsh-plugin` topic。
 - 发布预构建 GitHub Release 资产 `dsh-roundtable-theater.tgz`。文件名不含版本，因此条目中的 `releases/latest/download/` 地址可以在后续发布中保持稳定；每次发布都要上传同名资产。
-- 验证公开仓库地址、默认分支源码和 Release 下载地址确实可访问，再提交本地 YAML。该文件中的发布地址是预定目标，不表示已完成发布。
+- 提交或更新 YAML 前，验证公开仓库地址、默认分支源码和 Release 下载地址确实可访问。
 - 图标可不填；截图可在自己的仓库通过 `screenshots.json` 声明 1–8 张相对路径图片，不向目录仓库新增截图数据。
 
 ## 仓库年龄与 CI
