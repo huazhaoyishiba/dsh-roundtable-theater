@@ -1,0 +1,7 @@
+- insert:
+    - id: roundtable-theater
+      name: dsh-roundtable-theater
+      config:
+        maxRuns: 30
+        maxTokens: 1800
+        timeoutMs: 180000

@@ -1,0 +1,37 @@
+{
+  "name": "dsh-roundtable-theater",
+  "version": "0.1.1",
+  "description": "AI 圆桌剧场：三个角色，两轮交锋，一份可行动的结论。DeepSeek Harness 原生插件。",
+  "repository": { "type": "git", "url": "git+https://github.com/huazhaoyishiba/dsh-roundtable-theater.git" },
+  "homepage": "https://github.com/huazhaoyishiba/dsh-roundtable-theater#readme",
+  "bugs": { "url": "https://github.com/huazhaoyishiba/dsh-roundtable-theater/issues" },
+  "author": "huazhaoyishiba",
+  "keywords": ["dsh-plugin", "deepseek-harness", "roundtable", "debate"],
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22", "dsh": ">=0.1.5-rc.1" },
+  "main": "src/host.mjs",
+  "exports": { ".": "./src/host.mjs", "./client": "./lib/client.js" },
+  "files": ["src/", "lib/client.js", "scripts/", "test/", "docs/", "assets/", "screenshots.json", "cordis.patch.yml", "README.md", "README.en.md", "CHANGELOG.md", "LICENSE", "AGENTS.md"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "inject": ["@deepseek-ai/dsh-client-ui-layout", "@deepseek-ai/dsh-client-ui-sidebar", "@deepseek-ai/dsh-api-remotes"]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/schemastery": "^3.18.2",
+    "@deepseek-ai/dsh-llm": ">=0.1.5-rc.1 || >=0.2.1-rc.3",
+    "@deepseek-ai/dsh-storage-domain": ">=0.1.5-rc.1 || >=0.2.1-rc.3",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.5-rc.1 || >=0.2.1-rc.3",
+    "zod": "^3.24.0 || ^4.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "preview": "node scripts/preview.mjs",
+    "prepack": "node scripts/build.mjs"
+  }
+}

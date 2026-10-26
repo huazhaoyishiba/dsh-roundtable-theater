@@ -1,0 +1,9 @@
+node_modules/
+.pnpm-store/
+.dsh-test/
+.test-results/
+*.tgz
+*.log
+.env
+.env.*
+!.env.example
