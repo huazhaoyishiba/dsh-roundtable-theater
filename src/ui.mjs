@@ -137,7 +137,7 @@ export function mountTheater(root, { api }) {
     seats.append(seat);
     seatNodes[role] = { seat, state };
   }
-  stage.append(stageCaption, table, seats);
+  stage.append(stageCaption, seats, table);
 
   const newForm = el('form', 'rt-new-form');
   const topicLabel = el('label', 'rt-topic-label', '今天，把什么想法摆上桌？');

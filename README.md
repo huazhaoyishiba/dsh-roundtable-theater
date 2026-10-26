@@ -51,7 +51,7 @@ dsh plugin --profile web add D:\wxchat
 独立安装包：
 
 ```powershell
-dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.2.tgz
+dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.3.tgz
 ```
 
 桌面版请在其“插件”页添加本地安装包，或使用它实际采用的 profile；例如它使用 `desktop` 时，把命令中的 `web` 改成 `desktop`。Web 与桌面 profile 的插件列表分别维护。

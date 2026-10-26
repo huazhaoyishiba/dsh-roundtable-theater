@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Prevent the roundtable caption from overlapping role status text in completed discussions.
+- Let the role area and table caption reserve their own space across panel widths and larger text sizes.
+
 ## 0.1.2
 
 - Follow the Harness light, dark and custom themes through native semantic color tokens.

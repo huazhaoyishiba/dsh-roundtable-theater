@@ -194,6 +194,8 @@
 }
 .rt-stage {
   position:relative;
+  display:flex;
+  flex-direction:column;
   min-height:244px;
   margin:0 26px 22px;
   border:1px solid var(--rt-divider);
@@ -271,19 +273,18 @@
   animation:rt-pulse 1.6s ease-in-out infinite
 }
 .rt-table {
-  position:absolute;
+  flex-shrink:0;
   width:65%;
-  height:74px;
+  margin:auto auto 0;
   background:var(--rt-panel);
-  left:17.5%;
-  bottom:-39px;
-  border-radius:50%;
+  border-radius:50% 50% 0 0 / 100% 100% 0 0;
   border:1px solid var(--dsw-alias-border-l3,var(--rt-border));
+  border-bottom:0;
 }
 .rt-table span {
-  position:absolute;
-  top:8px;
+  display:block;
   width:100%;
+  padding:.8em 1.2em 1em;
   text-align:center;
   color:var(--rt-muted);
   font-size:10px;
