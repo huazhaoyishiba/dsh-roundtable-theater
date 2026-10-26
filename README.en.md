@@ -6,6 +6,13 @@ A native DeepSeek Harness panel for discussing an idea with a product manager, a
 
 ![Roundtable Theater running inside Harness](assets/screenshot.png)
 
+<details>
+<summary>Dark theme</summary>
+
+![Roundtable Theater in the Harness dark theme](assets/screenshot-dark.png)
+
+</details>
+
 ## Install
 
 Download a prebuilt package from [GitHub Releases](https://github.com/huazhaoyishiba/dsh-roundtable-theater/releases), or install it directly into the Web profile:
@@ -31,7 +38,7 @@ Minimum Harness version: **0.1.5-rc.1**, with no declared upper bound. Runtime c
 - Retry an answer while retaining its previous versions in the archive.
 - Mark an answer as supported or challenged, then refresh an outdated summary.
 - Persistent discussion history and Markdown export.
-- An independent native panel, responsive layout, keyboard controls and reduced-motion support.
+- An independent native panel that follows the Harness light, dark and custom themes, with responsive layout, keyboard controls and reduced-motion support.
 
 Roles use the same default model configured in Harness, with separate role prompts and explicit discussion context. The plugin does not create independent coding agents or give roles shell, file-editing or external-action tools.
 

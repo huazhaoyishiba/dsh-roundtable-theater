@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Follow the Harness light, dark and custom themes through native semantic color tokens.
+- Match native page, card, input and button surfaces; remove the fixed purple and gold theme.
+- Preserve role colors while adapting their contrast to the active theme.
+
 ## 0.1.1
 
 - Declare a minimum Harness version of 0.1.5-rc.1 without an upper bound.

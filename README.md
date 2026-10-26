@@ -6,6 +6,13 @@
 
 ![Harness 中的圆桌剧场界面](assets/screenshot.png)
 
+<details>
+<summary>查看深色主题</summary>
+
+![Harness 深色主题中的圆桌剧场](assets/screenshot-dark.png)
+
+</details>
+
 ## 已实现
 
 - 第一轮：三个角色分别提案；第二轮：回应前面的观点、提出质疑与取舍。
@@ -13,7 +20,7 @@
 - 流式发言、暂停与继续、点名追问、单条重新回答并保留旧版本。
 - 对发言赞同或质疑；新追问、重答和投票后可刷新结论。
 - 历史讨论自动保存、重启恢复、删除与 Markdown 导出。
-- 三个角色的原创 SVG 头像和剧场舞台，适配窄面板和手机宽度，支持键盘和减少动态效果。
+- 三个角色的原创 SVG 头像与圆桌区域，颜色和字体跟随 Harness 主题，适配窄面板和手机宽度，支持键盘和减少动态效果。
 
 ## 安装到 Harness
 
@@ -44,7 +51,7 @@ dsh plugin --profile web add D:\wxchat
 独立安装包：
 
 ```powershell
-dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.1.tgz
+dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.2.tgz
 ```
 
 桌面版请在其“插件”页添加本地安装包，或使用它实际采用的 profile；例如它使用 `desktop` 时，把命令中的 `web` 改成 `desktop`。Web 与桌面 profile 的插件列表分别维护。

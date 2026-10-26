@@ -1,9 +1,9 @@
 /** Browser view. State and generation belong to the host engine, reached only through api. */
 const ROLES = {
-  product: { name: '产品经理', tag: '先找到值得做的事', color: '#8fd1bd' },
-  engineer: { name: '程序员', tag: '把想法落到现实', color: '#a8c5ee' },
-  critic: { name: '挑刺用户', tag: '替真实体验把关', color: '#e8a9be' },
-  host: { name: '主持人', tag: '收束分歧，留下行动', color: '#d7b58b' },
+  product: { name: '产品经理', tag: '先找到值得做的事', color: 'var(--rt-role-product)' },
+  engineer: { name: '程序员', tag: '把想法落到现实', color: 'var(--rt-role-engineer)' },
+  critic: { name: '挑刺用户', tag: '替真实体验把关', color: 'var(--rt-role-critic)' },
+  host: { name: '主持人', tag: '收束分歧，留下行动', color: 'var(--rt-role-host)' },
 };
 const STATUS = { draft: '等待开场', running: '讨论进行中', paused: '已暂停', completed: '本场已结束', error: '讨论遇到问题' };
 const EXAMPLES = ['做一款上班间隙能玩的微信小游戏', '给独立开发者做一个轻量记账工具', '让新用户在一分钟内学会使用我的产品'];

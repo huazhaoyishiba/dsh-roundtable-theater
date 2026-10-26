@@ -1,6 +1,6 @@
 {
   "name": "dsh-roundtable-theater",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AI 圆桌剧场：三个角色，两轮交锋，一份可行动的结论。DeepSeek Harness 原生插件。",
   "repository": { "type": "git", "url": "git+https://github.com/huazhaoyishiba/dsh-roundtable-theater.git" },
   "homepage": "https://github.com/huazhaoyishiba/dsh-roundtable-theater#readme",
