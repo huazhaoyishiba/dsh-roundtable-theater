@@ -38,6 +38,8 @@ Minimum Harness version: **0.1.5-rc.1**, with no declared upper bound. Runtime c
 - Retry an answer while retaining its previous versions in the archive.
 - Mark an answer as supported or challenged, then refresh an outdated summary.
 - Persistent discussion history and Markdown export.
+- A searchable history drawer, compact role strip, single reading scroller and persistent question composer.
+- In-place follow-ups, per-discussion question drafts, summary navigation/copying and new-message prompts while reading earlier content.
 - An independent native panel that follows the Harness light, dark and custom themes, with responsive layout, keyboard controls and reduced-motion support.
 
 Roles use the same default model configured in Harness, with separate role prompts and explicit discussion context. The plugin does not create independent coding agents or give roles shell, file-editing or external-action tools.

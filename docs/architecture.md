@@ -7,6 +7,7 @@
 - `host.mjs` 将引擎接入 `storageDomain` 和 `TypertRemoteService`。`protocol.mjs` 是 host/client 共用的 action 校验与 RPC 描述来源。
 - 严格 RPC codec 同时提供 0.1 的 `schema` 和 0.2 的惰性 `create()`，二者复用同一个校验器，不复制协议规则。
 - `ui.mjs` 只通过 `api.state/action/subscribe` 操作讨论；Harness client 适配位于 `client.cjs`。真实 UI 与明确标识的离线预览复用相同界面。
+- 历史抽屉直接展示同一份讨论快照；搜索、当前视图和按讨论保留的未发送追问属于视图临时状态，不另建存档。讨论页仅发言区主滚动，追问区由布局固定在底部；流式更新尊重阅读位置，通过“回到最新”恢复跟随。
 - 客户端使用宿主的 React、ModuleLoader、slots、原生 RPC；注册全局 main 面板和 sidebar 入口，不依赖当前聊天会话。
 - 主题直接消费宿主 `--dsw-alias-*` 语义颜色、字体与 `color-scheme`；不维护插件自己的明暗状态或主题监听。角色辨识色从宿主语义色派生，预览缺少宿主 token 时使用系统颜色回退。
 - 浏览器源码只有纯模块和单个明确导出。构建脚本将这些模块包装为 Harness 的单文件 ModuleLoader 工厂，不引入第二套前端框架或开发服务器。

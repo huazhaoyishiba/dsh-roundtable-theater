@@ -5,7 +5,7 @@
 ## 发布与收录入口
 
 - [公开源码仓库](https://github.com/huazhaoyishiba/dsh-roundtable-theater)
-- [v0.1.1 Release](https://github.com/huazhaoyishiba/dsh-roundtable-theater/releases/tag/v0.1.1)
+- [最新 Release](https://github.com/huazhaoyishiba/dsh-roundtable-theater/releases/latest)
 - [收录 PR #9611](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/9611)
 
 仓库与安装包已公开，PR 已提交；是否完成收录以 PR 合并状态为准。仓库创建于 2026-10-26 12:17:07 UTC，满 1 天的时间为 2026-10-27 12:17:07 UTC（北京时间 20:17:07）。

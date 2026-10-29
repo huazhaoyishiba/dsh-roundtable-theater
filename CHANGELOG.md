@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.4
+
+- Move discussion history into a searchable drawer with status, selection and deletion.
+- Keep the full roundtable for new discussions and use a compact role strip while reading.
+- Use one main reading scroller with a persistent, collapsible question composer and new-message navigation.
+- Add in-place follow-ups, per-discussion question drafts, quick summary navigation and summary copying.
+- Keep export and deletion in a secondary actions menu and improve small-text readability.
+
 ## 0.1.3
 
 - Prevent the roundtable caption from overlapping role status text in completed discussions.

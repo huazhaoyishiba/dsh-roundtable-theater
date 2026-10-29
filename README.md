@@ -20,6 +20,8 @@
 - 流式发言、暂停与继续、点名追问、单条重新回答并保留旧版本。
 - 对发言赞同或质疑；新追问、重答和投票后可刷新结论。
 - 历史讨论自动保存、重启恢复、删除与 Markdown 导出。
+- 右上角历史抽屉支持搜索和切换讨论；讨论中使用紧凑角色栏、独立阅读区和底部追问框。
+- 可从发言直接追问、在生成期间先写草稿、定位和复制最新结论；回看旧发言时提示新内容。
 - 三个角色的原创 SVG 头像与圆桌区域，颜色和字体跟随 Harness 主题，适配窄面板和手机宽度，支持键盘和减少动态效果。
 
 ## 安装到 Harness
@@ -51,7 +53,7 @@ dsh plugin --profile web add D:\wxchat
 独立安装包：
 
 ```powershell
-dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.3.tgz
+dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.4.tgz
 ```
 
 桌面版请在其“插件”页添加本地安装包，或使用它实际采用的 profile；例如它使用 `desktop` 时，把命令中的 `web` 改成 `desktop`。Web 与桌面 profile 的插件列表分别维护。
