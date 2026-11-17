@@ -24,6 +24,7 @@ test('two rounds and final summary use prior completed transcript', async () => 
   assert.equal(result.status, 'completed');
   assert.deepEqual(result.messages.map((message) => message.role), ['product', 'engineer', 'critic', 'product', 'engineer', 'critic', 'host']);
   assert.deepEqual(calls.map((call) => call.transcript.length), [0, 1, 2, 3, 4, 5, 6]);
+  assert.deepEqual(calls.map((call) => call.phase), ['opening', 'opening', 'opening', 'rebuttal', 'rebuttal', 'rebuttal', 'summary']);
   assert.equal(result.messages[3].round, 2);
   assert.equal(result.summary, result.messages[6].text);
   assert.ok(events.some((state) => state.runs[0].messages.some((message) => message.text === '实时')));
@@ -35,7 +36,8 @@ test('two rounds and final summary use prior completed transcript', async () => 
 });
 
 test('ask and retry preserve history, original question and revision', async () => {
-  const { engine, run } = await setup();
+  const calls = [];
+  const { engine, run } = await setup({ generate: async (input) => { calls.push(input); return reply(input); } });
   engine.start(run.id);
   await engine.whenIdle();
   engine.ask(run.id, { role: 'critic', text: '用户为什么愿意付费？' });
@@ -52,6 +54,9 @@ test('ask and retry preserve history, original question and revision', async () 
   assert.equal(current.messages.length, 8);
   assert.equal(current.messages.at(-1).revisions.length, 1);
   assert.equal(current.messages.at(-1).revisions[0].text, message.text);
+  assert.equal(calls.at(-1).phase, 'followup');
+  assert.equal(calls.at(-1).instruction, '用户为什么愿意付费？');
+  assert.equal(calls.at(-2).phase, 'followup');
   await engine.close();
 });
 
@@ -87,6 +92,7 @@ test('resume completes an interrupted manual follow-up or summary using the same
     let count = 0, entered;
     const gate = new Promise((resolve) => { entered = resolve; });
     const { engine, run } = await setup({ generate: async (input) => {
+      if (count >= 7) assert.equal(input.phase, 'followup');
       if (++count === 8) {
         input.onDelta('尚未完成');
         entered();

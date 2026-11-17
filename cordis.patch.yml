@@ -3,5 +3,5 @@
       name: dsh-roundtable-theater
       config:
         maxRuns: 30
-        maxTokens: 1800
+        maxTokens: 8192
         timeoutMs: 180000

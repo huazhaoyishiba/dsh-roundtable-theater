@@ -67,11 +67,13 @@ export function createTheater({ generate, load = async () => null, save = async 
     const position = run.messages.indexOf(message);
     const context = role === 'host' || includeLater ? run.messages.filter((item) => item !== message) : run.messages.slice(0, position);
     const transcript = clone(context.filter((item) => item.status === 'completed' && (role !== 'host' || item.kind !== 'summary')));
-    const instruction = question ?? message.question ?? (role === 'host'
+    const followup = question ?? message.question;
+    const phase = followup ? 'followup' : role === 'host' ? 'summary' : message.round === 1 ? 'opening' : 'rebuttal';
+    const instruction = followup ?? (role === 'host'
       ? '总结两轮讨论，分别列出共识、分歧和可执行的下一步。清楚标明尚待验证的假设。'
       : message.round === 1 ? '第一轮：从你的角色出发给出立场、建议和理由。' : '第二轮：回应其他角色的意见，提出质疑、修正和具体取舍，避免重复第一轮。');
     try {
-      const value = await generate({ role, topic: run.topic, transcript, instruction, signal, onDelta(delta) {
+      const value = await generate({ role, phase, topic: run.topic, transcript, instruction, signal, onDelta(delta) {
         if (signal.aborted || typeof delta !== 'string') return;
         message.text = (message.text + delta).slice(0, 32000);
         changed(run);

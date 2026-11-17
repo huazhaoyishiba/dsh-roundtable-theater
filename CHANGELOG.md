@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.5
+
+- Raise the default and bundled output limit from 1800 to 8192 tokens to accommodate expanded role responses and reasoning budgets.
+- Strengthen role-specific decisions, concrete counterexamples, implementation tradeoffs and acceptance criteria.
+- Distinguish opening, rebuttal, follow-up and summary tasks, including retries and resumed questions.
+- Preserve core-round context during long discussions and retain ending conditions when truncating long speeches.
+- Clarify evidence boundaries and simulated user perspectives; prompt and mock-stream checks do not validate live-model quality.
+
 ## 0.1.4
 
 - Move discussion history into a searchable drawer with status, selection and deletion.

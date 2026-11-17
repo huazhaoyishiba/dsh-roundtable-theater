@@ -15,8 +15,9 @@
 
 ## 已实现
 
-- 第一轮：三个角色分别提案；第二轮：回应前面的观点、提出质疑与取舍。
-- 主持人汇总共识、分歧和下一步。
+- 第一轮：产品经理明确用户价值、范围和验证条件；程序员拆解实现路径、失败处理和验收；挑刺用户用具体场景检验使用动机与体验。
+- 第二轮：针对其他角色的具体主张交锋，说明修改或坚持原判断的依据，补充反例、约束与取舍。
+- 主持人区分真实共识、未决分歧和建议，整理有优先级、产出与验收条件的下一步。
 - 流式发言、暂停与继续、点名追问、单条重新回答并保留旧版本。
 - 对发言赞同或质疑；新追问、重答和投票后可刷新结论。
 - 历史讨论自动保存、重启恢复、删除与 Markdown 导出。
@@ -53,7 +54,7 @@ dsh plugin --profile web add D:\wxchat
 独立安装包：
 
 ```powershell
-dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.4.tgz
+dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.5.tgz
 ```
 
 桌面版请在其“插件”页添加本地安装包，或使用它实际采用的 profile；例如它使用 `desktop` 时，把命令中的 `web` 改成 `desktop`。Web 与桌面 profile 的插件列表分别维护。
@@ -73,6 +74,8 @@ dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.4.tgz
 
 模型凭据缺失、请求失败、超时和输出被截断都会显示错误；可以更改 Harness 模型设置，再继续或重答。每个角色使用独立模型请求和明确的讨论上下文，角色没有文件修改、Shell 或外部操作工具。
 
+角色提示要求区分事实、假设和估算，挑刺用户是模拟用户视角，不代表真实调研。追问优先回答当前问题；长讨论保留最初两轮核心发言并补入近期记录，最多携带 24 条发言。超长发言保留开头与结尾并标注截断，未携带的旧追问不会自动补回。角色普通发言通常为 350–650 字，主持人结论通常为 600–900 字，简单问题可简短回答。提示词与流程测试不代表真实模型的回答质量已经验证。
+
 ## 插件配置
 
 在目标 profile 的 `cordis.patch.yml` 覆盖以下行，然后重启 Harness：
@@ -81,11 +84,11 @@ dsh plugin --profile web add D:\wxchat\dsh-roundtable-theater-0.1.4.tgz
 - id: roundtable-theater
   config:
     maxRuns: 30
-    maxTokens: 1800
+    maxTokens: 8192
     timeoutMs: 180000
 ```
 
-`maxTokens` 是单次发言的输出上限；模型若将推理计入输出预算，可能需要增大。`timeoutMs` 是单次发言等待上限。调低 `maxRuns` 前先删除超出数量的历史。
+`maxTokens` 是单次发言的输出上限，默认 8192，为角色分析及可能计入输出预算的推理内容预留空间，并不要求每次用满。已有安装若保留了 `maxTokens: 1800`，需将目标 profile 中的该项改为 `8192` 后重启。`timeoutMs` 是单次发言等待上限。调低 `maxRuns` 前先删除超出数量的历史。
 
 卸载：
 

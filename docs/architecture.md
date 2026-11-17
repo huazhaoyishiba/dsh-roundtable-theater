@@ -4,6 +4,7 @@
 
 - `engine.mjs` 是讨论状态唯一所有者，负责两轮顺序、暂停、追问、重答和投票。注入模型生成和存储能力，业务不依赖 DSH。
 - `generator.mjs` 经 `ctx.llm.stream` 调用当前 Harness 默认模型，沿用凭据服务；角色使用独立请求和明确的已完成发言上下文。每轮只请求当前角色，不把角色讨论解释为隐藏思考。角色不带文件或命令执行工具。
+- 引擎根据发言轮次和原始追问派生 `phase`（opening/rebuttal/followup/summary），重答与恢复沿用该语义，不增加存档字段。角色专业要求与阶段提示集中在 `generator.mjs`，讨论材料作为 JSON 用户消息传入；上下文最多 24 条，优先保留两轮核心发言，再补最近记录，超长正文保留首尾并明确标记省略。
 - `host.mjs` 将引擎接入 `storageDomain` 和 `TypertRemoteService`。`protocol.mjs` 是 host/client 共用的 action 校验与 RPC 描述来源。
 - 严格 RPC codec 同时提供 0.1 的 `schema` 和 0.2 的惰性 `create()`，二者复用同一个校验器，不复制协议规则。
 - `ui.mjs` 只通过 `api.state/action/subscribe` 操作讨论；Harness client 适配位于 `client.cjs`。真实 UI 与明确标识的离线预览复用相同界面。

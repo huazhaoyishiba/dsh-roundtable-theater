@@ -34,6 +34,8 @@ Minimum Harness version: **0.1.5-rc.1**, with no declared upper bound. Runtime c
 ## Features
 
 - Two ordered rounds with three fixed roles, followed by a moderator summary.
+- Role-specific decision criteria: product value and validation, engineering feasibility and acceptance checks, and concrete user scenarios and counterexamples.
+- Second-round responses address specific claims and explain revisions; the moderator separates supported agreements, unresolved disagreements and recommendations with actionable acceptance criteria.
 - Streaming answers, pause/resume and targeted follow-up questions.
 - Retry an answer while retaining its previous versions in the archive.
 - Mark an answer as supported or challenged, then refresh an outdated summary.
@@ -43,6 +45,8 @@ Minimum Harness version: **0.1.5-rc.1**, with no declared upper bound. Runtime c
 - An independent native panel that follows the Harness light, dark and custom themes, with responsive layout, keyboard controls and reduced-motion support.
 
 Roles use the same default model configured in Harness, with separate role prompts and explicit discussion context. The plugin does not create independent coding agents or give roles shell, file-editing or external-action tools.
+
+Follow-ups prioritize the current question. Context retains the six core round speeches alongside recent messages, up to 24 total. Long speeches retain their beginning and ending with explicit truncation markers; omitted older follow-ups are not reconstructed. Prompts require assumptions and estimates to be identified and distinguish simulated user perspectives from actual research. Prompt and workflow tests do not establish live-model answer quality.
 
 A complete discussion makes seven model requests. Follow-ups, retries and summary refreshes each make another request, billed by the configured provider. Existing Harness model and credential services are reused; the plugin stores no API key.
 
@@ -56,9 +60,11 @@ Override the plugin row in the target profile's `cordis.patch.yml` and restart H
 - id: roundtable-theater
   config:
     maxRuns: 30
-    maxTokens: 1800
+    maxTokens: 8192
     timeoutMs: 180000
 ```
+
+The default output limit is 8192 tokens, allowing room for detailed role responses and models that count reasoning toward the output budget. Existing installations retaining `maxTokens: 1800` must update that profile setting to `8192` and restart Harness.
 
 ## Development and verification
 

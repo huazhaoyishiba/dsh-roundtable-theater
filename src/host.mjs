@@ -11,7 +11,7 @@ export const name = 'roundtable-theater';
 export const inject = ['llm', 'agentDefaultModel', 'storageDomain', 'typert'];
 export const Config = z.object({
   maxRuns: z.number().step(1).min(1).max(100).default(30),
-  maxTokens: z.number().step(1).min(256).max(8192).default(1800),
+  maxTokens: z.number().step(1).min(256).max(8192).default(8192),
   timeoutMs: z.number().step(1).min(1000).max(600000).default(180000),
 });
 
